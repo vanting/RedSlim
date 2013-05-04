@@ -1,0 +1,13 @@
+{% from "macros/bootstrap.twig" import alert as alert %}
+{% if flash.success %}
+	{{ alert(flash.success, 'success') }}
+{% endif %}
+{% if flash.error %}
+	{{ alert(flash.error, 'error') }}
+{% endif %}
+{% if flash.warning %}
+	{{ alert(flash.warning, 'warning') }}
+{% endif %}
+{% if flash.info %}
+	{{ alert(flash.info, 'info') }}
+{% endif %}

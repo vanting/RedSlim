@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+   {% use "base/stylesheets.twig" %}
+    
+    {% block stylesheets %}
+    {{ parent() }}
+	 <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    {% endblock stylesheets %}
+    </head>
+<body>
+<div class="fluid-container">
+	{% block content %}
+
+	{% endblock content %}
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% block sidebar %}
+	<div class="well sidebar-nav">
+            <ul class="nav nav-list">
+            	<li class="nav-header">Sidebar</li>
+
+	            {% for link in navurls %} 
+	           		<li {{ link.active ? 'class="active"' : 'false' }}><a href="{{ link.url }}">{{ link.desc }}</a></li>
+	          	{% endfor %}
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+            </ul>
+          </div><!--/.well -->
+{% endblock sidebar %}
