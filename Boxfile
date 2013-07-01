@@ -1,0 +1,29 @@
+web1: 
+  name: demoweb 
+  document_root: web
+  php_version: 5.4.14
+  php_extensions:
+    - mbstring
+    - mcrypt
+    - pdo_mysql
+    - redis
+    - zip
+    - xcache
+  php_session_save_handler: redis
+  php_session_save_path: "tcp://tunnel.pagodabox.com:6379"
+  shared_writable_dirs:
+    - app/storage/db/
+    - app/storage/logs/
+    - app/storage/cache/twig/
+  php_upload_max_filesize: "8M"
+  after_build:
+    - "mv pagoda/appconfig.php app/config/appconfig.php"
+    - "rm -R pagoda"
+  after_deploy:
+    - "rm -f app/storage/cache/twig/*"
+db1:
+  name: demodb
+  type: mysql
+cache1:
+  name: democache
+  type: redis

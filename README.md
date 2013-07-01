@@ -1,3 +1,13 @@
+# RedSlim Pagoda Box Quickstart
+
+Provides a Quickstart installation of RedSlim including a preconfigured MySQL database and Redis cache.
+
+## Installation
+
+You can install the Quickstart either directly from the [Pagoda Box App Cafe](https://pagodabox.com/cafe/vanting/redslim), as a Quickstart through your Pagoda Box dashboard during the new application creation process, or by cloning the [GitHub repository](https://github.com/vanting/RedSlim.git) and pushing it to an empty Pagoda Box application repository.
+
+---
+
 RedSlim (Slim + Twig + Redbean), a PHP micro framework
 ===========================================
 

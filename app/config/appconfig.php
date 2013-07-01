@@ -23,7 +23,7 @@ date_default_timezone_set('Asia/Hong_Kong');
 
 // SQLite
 $dbName = 'test.s3db';
-R::setup('sqlite:' . ROOT . '/app/db/' . $dbName);  
+R::setup('sqlite:' . ROOT . '/app/storage/db/' . $dbName);  
 
 // Disable fluid mode so as to prevent from auto-commit in a transaction
 //R::freeze(true);        
@@ -38,8 +38,8 @@ R::setup('sqlite:' . ROOT . '/app/db/' . $dbName);
     //'strict_variables' => true
 );
 
-if (is_writable(ROOT . '/app/cache/twig')) {
-    \Slim\Extras\Views\Twig::$twigOptions['cache'] = ROOT . '/app/cache/twig';
+if (is_writable(ROOT . '/app/storage/cache/twig')) {
+    \Slim\Extras\Views\Twig::$twigOptions['cache'] = ROOT . '/app/storage/cache/twig';
 }
 
 \Slim\Extras\Views\Twig::$twigExtensions = array(

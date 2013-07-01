@@ -12,7 +12,7 @@ $app = new \Slim\Slim(array(
 
 	'log.enabled'    => true,
 	'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
-				'path' => './app/logs',
+				'path' => ROOT.'/app/storage/logs',
 				'name_format' => 'Y-m-d',
 				'message_format' => '%label% - %date% - %message%'
 		))
