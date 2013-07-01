@@ -1,9 +1,9 @@
-SlimBean (Slim + Twig + Redbean = SlimBean)
+RedSlim (Slim + Twig + Redbean), a PHP micro framework
 ===========================================
 
 This project is inspired from ([Tieno/SlimPackage](https://github.com/Tieno/SlimPackage/)).
 
-SlimBean is a lightweight PHP framework that bundling the following MVC components. 
+RedSlim is a lightweight PHP framework that bundling the following MVC components. 
 By default, it is operated under the fluid mode of Redbean ORM with SQLite database.
 Therefore it is very suitable for quick prototyping and requires zero configuration.
 You can also switch to other databases and use it for serious project. 
@@ -19,7 +19,7 @@ You can also switch to other databases and use it for serious project.
 * **web/** is for your assets: js/css/img files. It should be the only folder publically available so your domain should point to this folder. `web/index.php` bootstraps the rest of the application.
 
 ##Writable Directory
-* **app/db/** cantains SQLite database file.
+* **app/db/** contains SQLite database file.
 * **app/cache/twig/** contains the twig template cache.
 * **app/logs/** contains the error logs.
 
@@ -29,17 +29,16 @@ You can also switch to other databases and use it for serious project.
     * [Add User](http://yourdomain/user/add/yourname)
     * [List User](http://yourdomain/user/list)
 
-
 #### Macros
 * Bootstrap macros in `views/macros/bootstrap.twig`
-	* alert
-	* label
-	* btn
+    * alert
+    * label
+    * btn
 
 #### Templates
 There are a couple of Twig templates in this package. They are included for common use.
 
 * A Bootstrap Hero template: `base/hero.html.twig`
 * A Bootstrap Fluid template: `base/fluid.html.twig`
-	* Both of these templates have Slim flash capabilities. The flash template is located in `base/components/flash.twig`
+* Both of these templates have Slim flash capabilities. The flash template is located in `base/components/flash.twig`
 * A Bootstrap login form template: `/login.html.twig`

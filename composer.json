@@ -1,6 +1,10 @@
 {
-    "name": "vanting/slimbean",
-    "description": "Slim + Twig + Redbean = SlimBean",
+    "name": "redslim/redslim",
+    "type": "library",
+    "description": "RedSlim (Slim + Twig + Redbean), a PHP micro framework",
+    "keywords": ["microframework","rest","router"],
+    "homepage": "https://github.com/vanting/RedSlim",
+    "license": "MIT",
     "authors": [
         {
             "name": "Van Ting",
