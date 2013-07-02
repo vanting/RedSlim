@@ -52,3 +52,7 @@ There are a couple of Twig templates in this package. They are included for comm
 * A Bootstrap Fluid template: `base/fluid.html.twig`
 * Both of these templates have Slim flash capabilities. The flash template is located in `base/components/flash.twig`
 * A Bootstrap login form template: `/login.html.twig`
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vanting/RedSlim/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
