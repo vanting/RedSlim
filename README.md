@@ -29,15 +29,15 @@ You can also switch to other databases and use it for serious project.
 * **web/** is for your assets: js/css/img files. It should be the only folder publically available so your domain should point to this folder. `web/index.php` bootstraps the rest of the application.
 
 ##Writable Directory
-* **app/db/** contains SQLite database file.
-* **app/cache/twig/** contains the twig template cache.
-* **app/logs/** contains the error logs.
+* **app/storage/db/** contains SQLite database file.
+* **app/storage/cache/twig/** contains the twig template cache.
+* **app/storage/logs/** contains the error logs.
 
 ## Additions
-#### Example routes
-* Default routes in /app/controllers/general.controller.php
-    * [Add User](http://yourdomain/user/add/yourname)
-    * [List User](http://yourdomain/user/list)
+#### Demo routes
+* Demo routes set in /app/controllers/general.controller.php
+    * [Add User](http://redslim.gopagoda.com/user/add/obama)
+    * [List User](http://redslim.gopagoda.com/user/list)
 
 #### Macros
 * Bootstrap macros in `views/macros/bootstrap.twig`
