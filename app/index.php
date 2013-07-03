@@ -17,7 +17,7 @@ $app = new \Slim\Slim(array(
 				'message_format' => '%label% - %date% - %message%'
 		))
 ));
-$app->setName('appname');
+$app->setName('RedSlim');
 
 // For native PHP session
 session_cache_limiter(false);

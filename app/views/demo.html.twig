@@ -1,0 +1,52 @@
+{% extends "base/fluid.html.twig" %}
+
+{% block content %}
+            <header>
+                <a href="https://github.com/vanting/RedSlim"><h1>Welcome to RedSlim!</h1></a>
+                <p>
+                Congratulations! Your RedSlim application is running. 
+                This framework is composed of a few popular components. If this is
+                your first time using RedSlim, start with the introduction of these components in the left menu.
+                </p>
+            </header>
+            
+            <section style="padding-top: 20px">
+                <h3>Say HI to me~</h3>
+                <form method="post" action="{{ app.urlFor('guest_comment') }}">
+                  <div class="input-prepend">
+                    <span class="add-on">@</span>
+                    <input class="input-medium" name="name" id="name" type="text" placeholder="Anonymous">
+                  </div>
+                  <div class="input-append">
+                    <input class="input-xxlarge" name="message" id="message" type="text" placeholder="What's on your mind?">
+                    <button class="btn" type="submit">Post</button>
+                  </div>        
+                </form>          
+            </section>
+            
+            <section style="padding-bottom: 20px">
+                <p>
+                    <a href="{{ app.urlFor('api_comment_json') }}"> >> Get these messages in json format</a>
+                </p>
+                <div class="row-fluid">
+                    <div class="span8">
+                        <table class="table table-striped table-condensed table-hover">
+                            <thead>
+                             <tr>
+                                 <th>Who</th>           
+                                 <th>Message</th> 
+                             </tr>
+                         </thead>
+                             <tbody>
+                             {% for guest in guests %}
+                                 <tr>
+                                     <td>{{ guest.modify_date }} @{{ guest.name }}</td>     
+                                     <td>{{ guest.message }}</td>
+                                 </tr>
+                             {% endfor %}
+                             </tbody>
+                         </table>  
+                    </div>
+                </div>
+            </section>
+{% endblock content %}

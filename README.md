@@ -11,7 +11,7 @@ You can also switch to other databases and use it for serious project.
 * **MVC**: Slim ([codeguy/Slim](https://github.com/codeguy/Slim))
 * **Template Engine**: Twig ([fabpot/Twig](https://github.com/fabpot/Twig))
 * **ORM**: RedBean ([gabordemooij/redbean](https://github.com/gabordemooij/redbean))
-* **HTML/CSS/Javascript**: Twitter Bootstrap ([twitter/bootstrap](https://github.com/twitter/bootstrap))
+* **UI Toolkit**: Twitter Bootstrap ([twitter/bootstrap](https://github.com/twitter/bootstrap))
 
 ## Installation
 
@@ -50,9 +50,6 @@ The bundled vendor libraries can be updated using [Composer](http://getcomposer.
 #### Demo
 
 * Site: [http://redslim.gopagoda.com/](http://redslim.gopagoda.com/)
-* Demo routes set in /app/controllers/general.controller.php
-    * [Add User](http://redslim.gopagoda.com/user/add/obama)
-    * [List User](http://redslim.gopagoda.com/user/list)
     
 #### Macros
 

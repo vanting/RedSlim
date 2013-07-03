@@ -1,27 +1,14 @@
 {% block sidebar %}
 	<div class="well sidebar-nav">
             <ul class="nav nav-list">
-            	<li class="nav-header">Sidebar</li>
-
-	            {% for link in navurls %} 
-	           		<li {{ link.active ? 'class="active"' : 'false' }}><a href="{{ link.url }}">{{ link.desc }}</a></li>
-	          	{% endfor %}
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+            	<li class="nav-header">Documentation</li>
+	          {% for link in navurls %} 
+	          	<li {{ link.active ? 'class="active"' : 'false' }}><a href="{{ link.url }}">{{ link.desc }}</a></li>
+	          {% endfor %}
+              <li><a href="http://www.slimframework.com/">Slim</a></li>
+              <li><a href="http://redbeanphp.com/">RedBean</a></li>
+              <li><a href="http://twig.sensiolabs.org/">Twig</a></li>
+              <li><a href="http://twitter.github.io/bootstrap/">Bootstrap</a></li>
             </ul>
-            </ul>
-          </div><!--/.well -->
+        </div><!--/.well -->
 {% endblock sidebar %}
