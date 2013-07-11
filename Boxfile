@@ -17,10 +17,11 @@ web1:
     - app/storage/cache/twig/
   php_upload_max_filesize: "8M"
   after_build:
-    - "mv pagoda/appconfig.php app/config/appconfig.php"
+    - "mv pagoda/database.php app/config/database.php"
     - "rm -R pagoda"
+    - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install --prefer-source" 
   after_deploy:
-    - "rm -f app/storage/cache/twig/*"
+    - "rm -rf app/storage/cache/twig/*"
 db1:
   name: demodb
   type: mysql

@@ -2,7 +2,7 @@
     "name": "redslim/redslim",
     "type": "library",
     "description": "RedSlim (Slim + Twig + Redbean), a PHP micro framework",
-    "keywords": ["microframework","rest","router"],
+    "keywords": ["microframework", "rest", "router"],
     "homepage": "https://github.com/vanting/RedSlim",
     "license": "MIT",
     "authors": [
@@ -18,5 +18,9 @@
         "twig/twig": "1.*",
         "twig/extensions": "*",
         "gabordemooij/redbean": "*"
-    }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev"
 }
