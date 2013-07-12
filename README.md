@@ -1,6 +1,8 @@
 RedSlim (Slim + Twig + Redbean), a PHP micro framework
 ======================================================
 
+[![Latest Stable Version](https://poser.pugx.org/redslim/redslim/v/stable.png)](https://packagist.org/packages/redslim/redslim)
+
 RedSlim is a lightweight PHP framework that bundling the following MVC components. 
 By default, it is operated under the fluid mode of Redbean ORM with SQLite database.
 Therefore it is very suitable for quick prototyping and requires zero configuration.
@@ -76,6 +78,6 @@ The RedSlim framework is open-sourced software licensed under the [MIT license](
 
 ----------
 
-
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/0b6eb25e8a80d2b92efb67525823d25c "githalytics.com")](http://githalytics.com/vanting/RedSlim)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vanting/RedSlim/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 

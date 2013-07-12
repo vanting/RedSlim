@@ -56,9 +56,8 @@ foreach(glob(ROOT . '/app/controllers/*.php') as $router) {
 | Configure Twig
 |--------------------------------------------------------------------------
 |
-| This script returns the application instance. The instance is given to
-| the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
+| The application uses Twig as its template engine. This script configures 
+| the template paths and adds some extensions.
 |
 */
 
