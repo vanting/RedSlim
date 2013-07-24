@@ -13,8 +13,6 @@
 */
 
 require ROOT . '/vendor/autoload.php';
-require ROOT . '/vendor/slim/extras/Slim/Extras/Views/Extension/TwigAutoloader.php';
-//require ROOT . '/vendor/slim/extras/Slim/Extras/Views/Extension/Twig/Extensions/Slim.php';
 
 /*
 |--------------------------------------------------------------------------

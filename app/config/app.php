@@ -10,8 +10,7 @@ define('SLIM_MODE', SLIM_MODE_DEV);
 return array(
     'mode' => SLIM_MODE,
     'cookies.secret_key' => md5('appsecretkey'),
-    
-    'view' => new \Slim\Extras\Views\Twig(),
+    'view' => new \Slim\Views\Twig(),
     'templates.path' => ROOT . '/app/views/',
     
     'debug' => SLIM_MODE === SLIM_MODE_DEV,

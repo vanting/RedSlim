@@ -3,14 +3,13 @@ RedSlim (Slim + Twig + Redbean), a PHP micro framework
 
 [![Latest Stable Version](https://poser.pugx.org/redslim/redslim/v/stable.png)](https://packagist.org/packages/redslim/redslim)
 
-RedSlim is a lightweight PHP framework that bundling the following MVC components. 
-By default, it is operated under the fluid mode of Redbean ORM with SQLite database.
-Therefore it is very suitable for quick prototyping and requires zero configuration.
-You can also switch to other databases and use it for serious project. 
+RedSlim is a lightweight PHP framework that bundling the following open source components. Its dependency is managed by **Composer** and can be easily updated. By default, RedSlim is configured to run with SQLite database. The database abstraction is done by Redbean, a simple and initutive ORM tool. With its fluid mode enabled, you can incrementally test and build your database schema and start prototyping your idea immediately. RedSlim is a zero-configuration framework for you to get start and learn quickly. You can also switch to other databases and use it for serious project. 
 
-* **MVC**: Slim ([codeguy/Slim](https://github.com/codeguy/Slim))
-* **Template Engine**: Twig ([fabpot/Twig](https://github.com/fabpot/Twig))
-* **ORM**: RedBean ([gabordemooij/redbean](https://github.com/gabordemooij/redbean))
+To learn more about these powerful components, check this out:
+
+* **Controller/Routing**: Slim ([codeguy/Slim](https://github.com/codeguy/Slim))
+* **Model/Persistence/ORM**: RedBean ([gabordemooij/redbean](https://github.com/gabordemooij/redbean))
+* **View/Template**: Twig ([fabpot/Twig](https://github.com/fabpot/Twig))
 * **UI Toolkit**: Twitter Bootstrap ([twitter/bootstrap](https://github.com/twitter/bootstrap))
 
 ## Installation
@@ -19,10 +18,20 @@ You can also switch to other databases and use it for serious project.
 
 Pagoda Box is a flexible PHP cloud hosting. This Quickstart installation of RedSlim includes a preconfigured **MySQL** database and **Redis** cache. You can install RedSlim either directly from the [Pagoda Box App Cafe](https://pagodabox.com/cafe/vanting/redslim), as a Quickstart through your Pagoda Box dashboard during the new application creation process, or by cloning the [GitHub repository](https://github.com/vanting/RedSlim.git) and pushing it to an empty Pagoda Box application repository.
 
-### Your Managed Server
+### Self Managed Server
 
-To install in your own server, clone the repository as follows:
+The instructions below assume you are running a **LAMP** stack in Ubuntu or any other **apt**-based distributions. To allow Slim to route with clean path syntax, you need to enable the url rewrite module.   
 
+	sudo a2enmod rewrite
+	sudo service apache2 restart
+
+Optionally, if you want to run this demo with the default SQLite database, you need the driver
+
+	sudo apt-get install php5-sqlite
+
+Suppose your document root is in /var/www, clone the repository as follows:
+
+	cd /var/www
 	git clone https://github.com/vanting/RedSlim.git redslim
 
 The required vendor libraries can be installed/updated using [Composer](http://getcomposer.org/). Go to the project root (where you see the file *composer.json*) and run the following command:
@@ -30,9 +39,16 @@ The required vendor libraries can be installed/updated using [Composer](http://g
 	cd ./redslim
 	composer install
 
-then, update your apache config file to point your document root to the **web** subdirectory.
+There are some directories should be made writeable to your web server process. 
 
-	DocumentRoot /var/www/html/redslim/web
+	chmod -R 777 ./app/storage
+
+Then, update your apache config file to set your document root to the **web** subdirectory.
+
+	<VirtualHost *:80>
+		DocumentRoot /var/www/redslim/web
+		ServerName example.com
+	</VirtualHost>
 
 ##Structure
 

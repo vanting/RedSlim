@@ -61,26 +61,17 @@ foreach(glob(ROOT . '/app/controllers/*.php') as $router) {
 |
 */
 
-\Slim\Extras\Views\Twig::$twigDirectory = ROOT . '/vendor/twig/twig/lib/Twig';
-\Slim\Extras\Views\Twig::$twigOptions = array(
-    'auto_reload' => true,
+$view = $app->view();
+$view->parserOptions = array(
     'debug' => true,
+    'cache' => ROOT . '/app/storage/cache/twig',
+    'auto_reload' => true,
     //'strict_variables' => true
 );
 
-if (is_writable(ROOT . '/app/storage/cache/twig')) {
-    \Slim\Extras\Views\Twig::$twigOptions['cache'] = ROOT . '/app/storage/cache/twig';
-}
-
-\Slim\Extras\Views\Twig::$twigExtensions = array(
-    'Twig_Extensions_Slim',
-    'Twig_Extension_Debug',
-    'Twig_Extensions_Extension_Text',    
-    //'Twig_Extensions_Markdown',
+$view->parserExtensions = array(
+    new \Slim\Views\TwigExtension(),
 );
-
-//\Slim\Extras\Views\Twig::$twigFunctions = array(
-//);
 
 /*
 |--------------------------------------------------------------------------
