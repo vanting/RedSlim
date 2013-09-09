@@ -43,7 +43,7 @@ There are some directories should be made writeable to your web server process.
 
 	chmod -R 777 ./app/storage
 
-Then, update your apache config file to set your document root to the **web** subdirectory.
+Then, update your apache config file to set your document root to the **web** subdirectory. This helps to secure your scripts which should normally be put inside the **app/** folder.
 
 	<VirtualHost *:80>
 		DocumentRoot /var/www/redslim/web

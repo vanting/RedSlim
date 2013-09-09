@@ -3,7 +3,7 @@
             <ul class="nav nav-list">
             	<li class="nav-header">Documentation</li>
 	          {% for link in pmenu %} 
-	          	<li {{ link.active ? 'class="active"' : 'false' }}><a href="{{ link.url }}">{{ link.desc }}</a></li>
+	          	<li {{ link.active ? 'class="active"' : '' }}><a href="{{ link.url }}">{{ link.desc }}</a></li>
 	          {% endfor %}
             </ul>
         </div><!--/.well -->
@@ -12,7 +12,7 @@
             <ul class="nav nav-list">
             	<li class="nav-header">Installation</li>
 	          {% for link in smenu %} 
-	          	<li {{ link.active ? 'class="active"' : 'false' }}><a href="{{ link.url }}">{{ link.desc }}</a></li>
+	          	<li {{ link.active ? 'class="active"' : '' }}><a href="{{ link.url }}">{{ link.desc }}</a></li>
 	          {% endfor %}
             </ul>
         </div><!--/.well -->
