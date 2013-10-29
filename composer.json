@@ -18,7 +18,8 @@
         "slim/views":"0.1.*",
         "twig/twig": "1.*",
         "twig/extensions": "*",
-        "gabordemooij/redbean": "*"
+        "gabordemooij/redbean": "*",
+        "raveren/kint": "dev-master"
     },
     "config": {
         "preferred-install": "dist"

@@ -33,6 +33,7 @@
                         <table class="table table-striped table-condensed table-hover">
                             <thead>
                              <tr>
+                                 <th>Date</th>           
                                  <th>Who</th>           
                                  <th>Message</th> 
                              </tr>
@@ -40,7 +41,8 @@
                              <tbody>
                              {% for guest in guests %}
                                  <tr>
-                                     <td>{{ guest.modify_date }} @{{ guest.name }}</td>     
+                                     <td>{{ guest.modify_date }}</td>    
+                                     <td>{{ guest.name }} @{{ guest.ip }}</td>     
                                      <td>{{ guest.message }}</td>
                                  </tr>
                              {% endfor %}

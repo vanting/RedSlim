@@ -33,16 +33,21 @@ $app->post('/guest/comment', function () use($app) {
 
             $guest = R::dispense('guest');
 
-            $name = $app->request()->post('name');
+            $name = $app->request->post('name');
             if (empty($name))
                 $name = 'anonymous';
 
             $guest->name = $name;
-            $guest->message = $app->request()->post('message');
-
+            $guest->message = $app->request->post('message');
+            $guest->ip = $app->request->getIp();
+            
+            // prepare to delete old comments
+            $yesterday = date('Y-m-d' , strtotime('-1 day'));
+            
             // start transaction
             R::begin();
             try {
+                R::exec('DELETE FROM guest WHERE modify_date < ?', array($yesterday));   
                 R::store($guest);
                 R::commit();
                 $app->flash('success', 'Nice to hear from you!');
@@ -50,7 +55,7 @@ $app->post('/guest/comment', function () use($app) {
                 R::rollback();
                 $app->flash('error', 'Oops... seems something goes wrong.');
             }
-            $app->redirect($app->request()->getReferrer());
+            $app->redirect($app->request->getReferrer());
         })->name('guest_comment');
 
 //PUT route
