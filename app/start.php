@@ -11,7 +11,7 @@
 */
 
 // Instantiate application
-$app = new \Slim\Slim(require_once ROOT . '/app/config/app.php');
+$app = new Slim(require_once ROOT . '/app/config/app.php');
 $app->setName('RedSlim');
 
 
@@ -61,16 +61,19 @@ foreach(glob(ROOT . '/app/controllers/*.php') as $router) {
 |
 */
 
-$view = $app->view();
-$view->parserOptions = array(
-    'debug' => true,
-    'cache' => ROOT . '/app/storage/cache/twig',
+TwigView::$twigDirectory = ROOT . '/vendor/twig/twig/lib/Twig';
+TwigView::$twigOptions = array(
     'auto_reload' => true,
+    'cache' => ROOT . '/app/storage/cache/twig',
+    'debug' => true,
     //'strict_variables' => true
 );
 
-$view->parserExtensions = array(
-    new \Slim\Views\TwigExtension(),
+TwigView::$twigExtensions = array(
+    'Twig_Extensions_Slim',
+    'Twig_Extension_Debug',
+    'Twig_Extensions_Extension_Text',    
+    //'Twig_Extensions_Markdown',
 );
 
 /*
@@ -82,7 +85,7 @@ $view->parserExtensions = array(
 | the connection.
 |
 */
-class R extends RedBean_Facade {
+class RB {
     
     static function loadConfig($config) {
         
@@ -90,24 +93,27 @@ class R extends RedBean_Facade {
         
         switch($conn['driver']) {
             case 'mysql':
-                self::setup ($conn['driver'] . ':host=' . $conn['host'] . '; dbname=' . $conn['database'], $conn['username'], $conn['password']);
+                R::setup ($conn['driver'] . ':host=' . $conn['host'] . '; dbname=' . $conn['database'], $conn['username'], $conn['password']);
                 break;
             case 'sqlite':
-                self::setup ($conn['driver'] . ':' . $conn['database']);
+                R::setup ($conn['driver'] . ':' . $conn['database']);
                 break;
         }
     }
     
 }
 
-R::loadConfig(require_once ROOT . '/app/config/database.php');
+RB::loadConfig(require_once ROOT . '/app/config/database.php');
+
+
 
 // Disable fluid mode in production environment
-$app->configureMode(SLIM_MODE_PRO, function () use ($app) {
+$app->configureMode(SLIM_MODE_PRO, 'switchMode');
+
+function switchMode() {
     // note, transactions will be auto-committed in fluid mode
     R::freeze(true);  
-});
-      
+}
 
 /*
 |--------------------------------------------------------------------------
