@@ -14,6 +14,23 @@
 
 class Model_Guest extends RedBean_SimpleModel {
 
+  // app functions
+  public function get_guests() {
+
+  $sql = R::findAll('guest', 'ORDER BY modify_date DESC');
+  return $sql;
+
+  }
+
+
+  public function get_guests_json() {
+
+  $sql = R::getAll('SELECT * FROM guest ORDER BY modify_date DESC');
+  return $sql;
+
+  }
+
+
     // lifecycle hooks
 
     public function dispense() {
