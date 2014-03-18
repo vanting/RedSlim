@@ -3,7 +3,9 @@
 //GET route
 $app->get('/', function () use ($app) {
 
-            $guests = R::findAll('guest', 'ORDER BY modify_date DESC');
+            $guest = R::dispense( 'guest' );
+            $guests = $guest->$get_guests();
+
             $options = array();
             $options['guests'] = $guests;
             $options['pmenu'] = array(
@@ -23,7 +25,8 @@ $app->get('/', function () use ($app) {
 
 $app->get('/api/comment/json', function () use ($app) {
 
-            $result = R::getAll('SELECT * FROM guest ORDER BY modify_date DESC');
+          $guest = R::dispense( 'guest' );
+            $result = $guest->$get_guests_json();
             header("Content-Type: application/json");
             echo json_encode($result);
         })->name('api_comment_json');
@@ -40,14 +43,14 @@ $app->post('/guest/comment', function () use($app) {
             $guest->name = $name;
             $guest->message = $app->request->post('message');
             $guest->ip = $app->request->getIp();
-            
+
             // prepare to delete old comments
             $yesterday = date('Y-m-d' , strtotime('-1 day'));
-            
+
             // start transaction
             R::begin();
             try {
-                R::exec('DELETE FROM guest WHERE modify_date < ?', array($yesterday));   
+                R::exec('DELETE FROM guest WHERE modify_date < ?', array($yesterday));
                 R::store($guest);
                 R::commit();
                 $app->flash('success', 'Nice to hear from you!');
