@@ -22,6 +22,8 @@ web1:
     - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install --prefer-source" 
   after_deploy:
     - "rm -rf app/storage/cache/twig/*"
+  cron:
+    - "0 */2 * * *": "php app/cron/nuke.php"
 db1:
   name: demodb
   type: mysql

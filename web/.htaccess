@@ -10,5 +10,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
 
 <Files "*">
-    ALLOW from all
+    Allow from all
 </Files>

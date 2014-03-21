@@ -1,5 +1,7 @@
 <?php
 
+require ROOT . '/app/dbloader.php';
+
 /*
 |--------------------------------------------------------------------------
 | Create Slim Application
@@ -51,6 +53,12 @@ foreach(glob(ROOT . '/app/controllers/*.php') as $router) {
 	include $router;
 }
 
+// Disable fluid mode in production environment
+$app->configureMode(SLIM_MODE_PRO, function () use ($app) {
+    // note, transactions will be auto-committed in fluid mode
+    R::freeze(true);  
+});
+
 /*
 |--------------------------------------------------------------------------
 | Configure Twig
@@ -72,42 +80,6 @@ $view->parserOptions = array(
 $view->parserExtensions = array(
     new \Slim\Views\TwigExtension(),
 );
-
-/*
-|--------------------------------------------------------------------------
-| Create Redbean DAO
-|--------------------------------------------------------------------------
-|
-| Create the loader class R to read the connection parameters and setup
-| the connection.
-|
-*/
-class R extends RedBean_Facade {
-    
-    static function loadConfig($config) {
-        
-        $conn = $config['connections'][$config['default']];       
-        
-        switch($conn['driver']) {
-            case 'mysql':
-                self::setup ($conn['driver'] . ':host=' . $conn['host'] . '; dbname=' . $conn['database'], $conn['username'], $conn['password']);
-                break;
-            case 'sqlite':
-                self::setup ($conn['driver'] . ':' . $conn['database']);
-                break;
-        }
-    }
-    
-}
-
-R::loadConfig(require_once ROOT . '/app/config/database.php');
-
-// Disable fluid mode in production environment
-$app->configureMode(SLIM_MODE_PRO, function () use ($app) {
-    // note, transactions will be auto-committed in fluid mode
-    R::freeze(true);  
-});
-      
 
 /*
 |--------------------------------------------------------------------------

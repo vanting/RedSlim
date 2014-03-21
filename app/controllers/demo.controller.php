@@ -19,14 +19,21 @@ $app->get('/', function () use ($app) {
             );
             $app->view()->appendData($options);
             $app->render('demo.html.twig');
-        });
+        })->name('home');
 
+// JSON api
 $app->get('/api/comment/json', function () use ($app) {
 
             $result = R::getAll('SELECT * FROM guest ORDER BY modify_date DESC');
             header("Content-Type: application/json");
             echo json_encode($result);
         })->name('api_comment_json');
+
+// nukes the entire database
+$app->get('/nuke', function () use($app) {
+            R::nuke();
+            $app->redirect($app->urlFor('home'));
+        });
 
 //POST route
 $app->post('/guest/comment', function () use($app) {
@@ -40,14 +47,14 @@ $app->post('/guest/comment', function () use($app) {
             $guest->name = $name;
             $guest->message = $app->request->post('message');
             $guest->ip = $app->request->getIp();
-            
+
             // prepare to delete old comments
-            $yesterday = date('Y-m-d' , strtotime('-1 day'));
-            
+            $yesterday = date('Y-m-d', strtotime('-1 day'));
+
             // start transaction
             R::begin();
             try {
-                R::exec('DELETE FROM guest WHERE modify_date < ?', array($yesterday));   
+                R::exec('DELETE FROM guest WHERE modify_date < ?', array($yesterday));
                 R::store($guest);
                 R::commit();
                 $app->flash('success', 'Nice to hear from you!');
