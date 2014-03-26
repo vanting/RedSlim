@@ -3,7 +3,7 @@
 //GET route
 $app->get('/', function () use ($app) {
 
-            $guests = R::findAll('guest', 'ORDER BY modify_date DESC');
+            $guests = R::dispense('guest')->getAll(true);
             $options = array();
             $options['guests'] = $guests;
             $options['pmenu'] = array(
@@ -24,7 +24,7 @@ $app->get('/', function () use ($app) {
 // JSON api
 $app->get('/api/comment/json', function () use ($app) {
 
-            $result = R::getAll('SELECT * FROM guest ORDER BY modify_date DESC');
+            $result = R::dispense('guest')->getAll();
             header("Content-Type: application/json");
             echo json_encode($result);
         })->name('api_comment_json');
