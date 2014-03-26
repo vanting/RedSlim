@@ -12,6 +12,10 @@ To learn more about these powerful components, check this out:
 * **View/Template**: Twig ([fabpot/Twig](https://github.com/fabpot/Twig))
 * **UI Toolkit**: Twitter Bootstrap ([twitter/bootstrap](https://github.com/twitter/bootstrap))
 
+## Versions
+
+There are two branches - *master* and *php52*. Because many new PHP features (e.g. closure) require PHP5.3+ and so do the above components, *php52* is a special release for those who have no choice to upgrade server version but still want to deploy RedSlim. This branch will not receive further support and development.
+
 ## Installation
 
 ### Pagoda Box Quickstart
@@ -49,6 +53,13 @@ Then, update your apache config file to set your document root to the **web** su
 		DocumentRoot /var/www/redslim/web
 		ServerName example.com
 	</VirtualHost>
+
+Note that in order to make the *.htaccess* effective, your main apache config file must allow subdirectory to override it.  
+
+	<Directory "/var/www">
+		AllowOverride All
+	</Directory>
+
 
 ##Structure
 
