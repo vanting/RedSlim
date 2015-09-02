@@ -38,6 +38,11 @@ Suppose your document root is in /var/www, clone the repository as follows:
 	cd /var/www
 	git clone https://github.com/vanting/RedSlim.git redslim
 
+Run these commands to globally install composer on your system:
+
+	curl -sS https://getcomposer.org/installer | php
+	mv composer.phar /usr/local/bin/composer
+
 The required vendor libraries can be installed/updated using [Composer](http://getcomposer.org/). Go to the project root (where you see the file *composer.json*) and run the following command:
 
 	cd ./redslim
