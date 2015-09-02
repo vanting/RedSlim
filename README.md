@@ -70,7 +70,7 @@ Note that in order to make the *.htaccess* effective, your main apache config fi
 
 * **app/** contains all files for your app: `models/`, `controllers/`, `views/` (Twig templates) and your `config/` (configuration). Slim is instantiated in `app/start.php`
 * **vendor/** contains the libraries for your application, and you can update them with composer.
-* **web/** is for your assets: js/css/img files. It should be the only folder publically available so your domain should point to this folder. `web/index.php` bootstraps the rest of the application.
+* **web/** is for your assets: js/css/img files. It should be the only folder publicly available so your domain should point to this folder. `web/index.php` bootstraps the rest of the application.
 
 ##Writable Directory
 
