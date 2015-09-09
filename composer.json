@@ -12,13 +12,13 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2",
+        "php": ">=5.3.4",
         "slim/slim": "2.4.*",
         "slim/extras": "2.0.*",
         "slim/views":"0.1.*",
         "twig/twig": "1.*",
         "twig/extensions": "*",
-        "gabordemooij/redbean": "3.*",
+        "gabordemooij/redbean": "dev-master",
         "raveren/kint": "dev-master"
     },
     "config": {

@@ -12,7 +12,7 @@
  * 
  */
 
-class Model_Base extends RedBean_SimpleModel {
+class Model_Base extends RedBeanPHP\SimpleModel {
     
     protected $beanType;
     

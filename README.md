@@ -82,7 +82,7 @@ Note that in order to make the *.htaccess* effective, your main apache config fi
 
 #### Demo
 
-* Site: [http://redslim.gopagoda.com/](http://redslim.gopagoda.com/)
+* Site: [http://redslim.ga/](http://redslim.ga/)
     
 #### Macros
 
@@ -110,6 +110,5 @@ The RedSlim framework is open-sourced software licensed under the [MIT license](
 
 ----------
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/0b6eb25e8a80d2b92efb67525823d25c "githalytics.com")](http://githalytics.com/vanting/RedSlim)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vanting/RedSlim/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 

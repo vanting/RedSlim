@@ -9,7 +9,7 @@
 | the connection.
 |
 */
-class R extends RedBean_Facade {
+class R extends RedBeanPHP\Facade {
     
     static function loadConfig($config) {
         
